@@ -9,11 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="k59-w1-PQg">
             <objects>
                 <navigationController id="pNX-jM-DVi" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iTA-hF-4FO">
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="icon_mapview-selected" id="b9o-rt-xXo"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" shadowImage="icon_mapview-deselected" id="iTA-hF-4FO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -34,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wle-RD-0gD">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wle-RD-0gD">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                             </mapView>
                         </subviews>
@@ -63,12 +64,24 @@
                     <view key="view" contentMode="scaleToFill" id="4Yw-hI-9z5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqw-WV-OGe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pqw-WV-OGe" firstAttribute="top" secondItem="4Yw-hI-9z5" secondAttribute="top" id="USx-u0-cUa"/>
+                            <constraint firstAttribute="trailing" secondItem="pqw-WV-OGe" secondAttribute="trailing" id="UUn-QZ-x31"/>
+                            <constraint firstItem="zmh-KM-4UP" firstAttribute="top" secondItem="pqw-WV-OGe" secondAttribute="bottom" id="WgN-Sy-SUR"/>
+                            <constraint firstItem="pqw-WV-OGe" firstAttribute="leading" secondItem="4Yw-hI-9z5" secondAttribute="leading" id="qaK-3t-sfQ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3i-cE-CrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2280" y="73"/>
+            <point key="canvasLocation" x="2280" y="72.5"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -221,12 +234,12 @@
             </objects>
             <point key="canvasLocation" x="-834.375" y="0.0"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--MapTabBarController-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MapTabBarController" title="MapTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" selectionIndicatorImage="icon_mapview-selected" shadowImage="icon_mapview-selected" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -240,10 +253,11 @@
             </objects>
             <point key="canvasLocation" x="-41" y="0.0"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="b6I-Gy-7W9">
             <objects>
                 <navigationController id="wMp-Uh-gWe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="icon_listview-selected" id="Fvf-Ab-XUJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LAN-LH-5rA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -255,6 +269,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_listview-selected" width="75" height="50"/>
+        <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
         <image name="logo-u" width="62" height="62"/>
         <image name="second" width="30" height="30"/>

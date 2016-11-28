@@ -16,7 +16,7 @@ class UdacityClient {
     var session = URLSession.shared
     
     // (Magic) number of security characters to skip of Udacity API response
-    let securityChars = 5
+    //    let securityChars = 5
     
     // MARK: Request user key
     
@@ -52,9 +52,12 @@ class UdacityClient {
             
             /* Skip security characters */
             
-            let dataLength = data.count
-            let r = self.securityChars...Int(dataLength)
-            let newData = data.subdata(in: Range(r)) /* subset response data! */
+//            let dataLength = data.count
+//            let r = self.securityChars...Int(dataLength)
+//            let newData = data.subdata(in: Range(r)) /* subset response data! */
+            let range = Range(uncheckedBounds: (5, data.count - 5))
+            let newData = data.subdata(in: range) /* subset response data! */
+            print(NSString(data: newData, encoding: String.Encoding.utf8.rawValue)!)
             
             /* Parse and use data */
             
@@ -102,9 +105,12 @@ class UdacityClient {
             
             /* Skip security characters */
             
-            let dataLength = data.count
-            let r = self.securityChars...Int(dataLength)
-            let newData = data.subdata(in: Range(r)) /* subset response data! */
+//            let dataLength = data.count
+//            let r = self.securityChars...Int(dataLength)
+//            let newData = data.subdata(in: Range(r)) /* subset response data! */
+            let range = Range(uncheckedBounds: (5, data.count - 5))
+            let newData = data.subdata(in: range) /* subset response data! */
+            print(NSString(data: newData, encoding: String.Encoding.utf8.rawValue)!)
             
             /* Parse and use data */
             

@@ -15,7 +15,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var debugTextLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
     
     // MARK: Life Cycle
@@ -32,10 +31,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         setUIEnabled(enabled: false)
         
-        if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            debugTextLabel.text = "Username or Password Empty."
-        } else {
-            setUIEnabled(enabled: false)
+        // Check for username
+        guard usernameTextField.text != "" else {
+            displayAlert(message: "Please enter your username(email).")
+            setUIEnabled(enabled: true)
+            return
+        }
+        
+        // Check for password
+        guard passwordTextField.text != "" else {
+            displayAlert(message: "Please enter your password.")
+            setUIEnabled(enabled: true)
+            return
         }
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -55,7 +62,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         self.displayAlert(message: error!)
                     }
-                    
                 }
                 
             } else {
@@ -65,11 +71,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 // Enable UI again and show error
                 self.setUIEnabled(enabled: true)
                 self.displayAlert(message: error!)
-                
             }
-            
         }
-        
     }
     
     @IBAction func signUpPressed(_ sender: AnyObject) {
@@ -112,9 +115,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.loginButton.setTitle("We're logging you in...", for: UIControlState.disabled)
             }
         }
-        
-    }
-    
+    }    
 }
 
     

@@ -282,11 +282,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="lC1-ud-2am">
-                                <rect key="frame" x="16" y="31.5" width="288" height="417"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="lC1-ud-2am">
+                                <rect key="frame" x="16" y="71.5" width="288" height="337"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="oSx-Xm-eug">
-                                        <rect key="frame" x="70.5" y="0.0" width="147" height="128"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="oSx-Xm-eug">
+                                        <rect key="frame" x="70.5" y="0.0" width="147" height="153"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="b3F-lp-DTD">
                                                 <rect key="frame" x="25.5" y="0.0" width="96" height="97"/>
@@ -296,7 +296,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCR-qJ-6Bi">
-                                                <rect key="frame" x="0.0" y="104" width="147" height="24"/>
+                                                <rect key="frame" x="0.0" y="129" width="147" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="147" id="Fzj-mC-uti"/>
                                                     <constraint firstAttribute="height" constant="24" id="O97-Ko-M6w"/>
@@ -308,9 +308,9 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ogf-Wy-SvN">
-                                        <rect key="frame" x="0.0" y="146" width="288" height="271"/>
+                                        <rect key="frame" x="0.0" y="177" width="288" height="160"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBh-KS-oCu">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBh-KS-oCu">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="37"/>
                                                 <color key="backgroundColor" red="0.99936896562576294" green="0.74338763952255249" blue="0.53373223543167114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -320,12 +320,12 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="IPy-oR-94A" id="jxY-o9-SZt"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K77-Xs-sxI">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K77-Xs-sxI">
                                                 <rect key="frame" x="0.0" y="43" width="288" height="37"/>
                                                 <color key="backgroundColor" red="0.99936896559999999" green="0.74338763949999997" blue="0.53373223540000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -335,7 +335,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="IPy-oR-94A" id="rP0-dF-CIY"/>
                                                 </connections>
@@ -361,21 +361,13 @@
                                                     <constraint firstAttribute="width" constant="288" id="xwv-ZC-4Ev"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Don't have an account? Sign Up"/>
+                                                <state key="normal" title="Don't have an account? Sign Up">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="signUpPressed:" destination="IPy-oR-94A" eventType="touchUpInside" id="ps2-f6-Ihl"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62C-XJ-vFd">
-                                                <rect key="frame" x="0.0" y="166" width="288" height="105"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="105" id="Kee-RW-bmd"/>
-                                                    <constraint firstAttribute="width" constant="288" id="M0f-Rq-0D7"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -388,7 +380,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="debugTextLabel" destination="62C-XJ-vFd" id="0Db-PL-v6l"/>
                         <outlet property="loginButton" destination="XM4-iX-EbS" id="nvM-2o-SGv"/>
                         <outlet property="passwordTextField" destination="K77-Xs-sxI" id="VyN-dD-mdf"/>
                         <outlet property="signUpButton" destination="cTD-kW-w68" id="sTz-yT-qQ5"/>

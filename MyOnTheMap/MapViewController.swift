@@ -21,7 +21,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewWillAppear(animated)
         
         // Check if current user has already posted a location
-        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         ParseClient.sharedInstance().getUserLocation(userKey: UserInformation.userKey) { (success, error) in
@@ -29,16 +28,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             if success! {
                 
                 // If user is already on map, center map on coordinates they posted
-                
                 if UserInformation.latitude != 0.00 && UserInformation.longitude != 0.00 {
-                    
                     performUIUpdatesOnMain {
                         let location = CLLocationCoordinate2D(latitude: UserInformation.latitude, longitude: UserInformation.longitude)
                         let span = MKCoordinateSpanMake(10, 10)
                         let region = MKCoordinateRegion(center: location, span: span)
                         self.mapView.setRegion(region, animated: true)
                     }
-                    
                 }
                 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -46,13 +42,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             } else {
                 
                 self.displayAlert(message: error!)
-                
             }
-            
         }
         
         // Get student locations
-        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         ParseClient.sharedInstance().getStudentLocations() { (success, error) in
@@ -73,9 +66,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 self.displayAlert(message: error!)
                 
             }
-            
         }
-        
     }
     
     // MARK: Actions
@@ -99,10 +90,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.displayAlert(message: error!)
-                
             }
         }
-        
     }
     
     @IBAction func refreshPressed(_ sender: AnyObject) {
@@ -125,11 +114,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.displayAlert(message: error!)
-                
             }
-            
         }
-        
     }
     
     // MARK: Function to populate map with students
@@ -139,18 +125,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Store map annotations
         var annotations = [MKPointAnnotation]()
         
-        for s in StudentModel.sharedInstance.students {
+        for student in StudentModel.sharedInstance.students {
             
             // Create coordinate from latitude and longitude
-            let lat = CLLocationDegrees(s.latitude)
-            let lon = CLLocationDegrees(s.longitude)
+            let lat = CLLocationDegrees(student.latitude)
+            let lon = CLLocationDegrees(student.longitude)
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
             
             // Create map annotation with coordinate, name and media URL
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
-            annotation.title = "\(s.firstName) \(s.lastName)"
-            annotation.subtitle = s.mediaURL
+            annotation.title = "\(student.firstName) \(student.lastName)"
+            annotation.subtitle = student.mediaURL
             
             // Add annotation to array
             annotations.append(annotation)

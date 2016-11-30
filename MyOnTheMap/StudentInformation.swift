@@ -65,13 +65,10 @@ struct StudentInformation {
             
             if let studentInfo = StudentInformation(dictionary: result) {
                 students.append(studentInfo)
-                
             }
-            
         }
         
         return students
-        
     }
     
 }

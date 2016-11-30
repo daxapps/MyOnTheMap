@@ -64,7 +64,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.displayAlert(message: error!)
-                
             }
         }
     }
@@ -85,9 +84,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     let viewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
                     self.present(viewController, animated: true, completion: nil)
                 }
-                
             } else {
-                
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.displayAlert(message: error!)
             }
@@ -109,9 +106,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     self.mapView.removeAnnotations(self.mapView.annotations)
                     self.populateMap()
                 }
-                
             } else {
-                
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.displayAlert(message: error!)
             }
@@ -143,8 +138,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         
         // Add annotations to map
-        mapView.addAnnotations(annotations)
-        
+        mapView.addAnnotations(annotations)        
     }
     
     // MARK: Open annotation's mediaURL in browser when tapped

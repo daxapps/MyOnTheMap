@@ -13,10 +13,8 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
     
     // MARK: Properties
     
-    // UI state
     enum UIState { case MapString, MediaURL }
     var uiState = "MapString"
-    
     var placemark: CLPlacemark? = nil
     
     // MARK: Outlets
@@ -49,18 +47,14 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
         
         // Check if user has already posted a location
         guard UserInformation.mapString.isEmpty else {
-            
             displayAlert(message: "Looks like you already posted a location. If you continue, we'll update your previous location.")
             
             performUIUpdatesOnMain {
                 // Set mapString text to previously posted location
                 self.mapStringTextField.text = UserInformation.mapString.capitalized
             }
-            
             return
-            
         }
-        
     }
     
     // MARK: Hide keyboard when return key is pressed and perform submit action
@@ -96,8 +90,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
     }
     
     @IBAction func submitPressed(_ sender: AnyObject) {
-        
-        // Map view
         if uiState == "MapString" {
             
             // Check for empty string
@@ -107,7 +99,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             }
             
             // Start geocoding process
-            
             performUIUpdatesOnMain {
                 
                 // Show activity indicator
@@ -116,7 +107,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
                 activityIndicator.startAnimating()
                 self.view.addSubview(activityIndicator)
                 
-                // Geolocate
                 let geocoder = CLGeocoder()
                 
                 geocoder.geocodeAddressString(self.mapStringTextField.text!, completionHandler: { (results, error) in
@@ -138,24 +128,16 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
                         // Change submit button title accordingly
                         
                         if UserInformation.mediaURL != "" {
-                            
                             self.mediaURLTextField.text = UserInformation.mediaURL
-                            self.submitButton.setTitle("UPDATE", for: UIControlState.normal)
-                            
+                            self.submitButton.setTitle(" UPDATE ", for: UIControlState.normal)
                         }
-                        
                     }
                 })
-                
             }
-            
         } else if uiState == "MediaURL" {
             
             // MediaURL view
-            
             if UserInformation.objectId.isEmpty {
-                
-                // User hasn't posted before
                 
                 // Check for empty string
                 if mediaURLTextField.text!.isEmpty {
@@ -189,30 +171,18 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
                             UserInformation.mediaURL = self.mediaURLTextField.text!
                             
                             self.dismiss(animated: true, completion: nil)
-                            
                         }
-                        
                     } else {
-                        
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         self.displayAlert(message: error!)
-                        
                     }
                 }
-                
             } else {
-                
-                // User has posted before
-                
-                // Check for empty string
-                
                 if mediaURLTextField.text!.isEmpty {
                     displayAlert(message: "Please enter a URL.")
                     return
                 }
-                
-                // Validate URL
-                
+  
                 if validateURL(mediaURLTextField.text!) == false {
                     displayAlert(message: "Please enter a valid URL.")
                     return
@@ -231,9 +201,6 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
                         performUIUpdatesOnMain {
                             
                             // Set user's location coordinates to center map on when view controller is dismissed
-                            // There's only one API call in map view to check whether current user has posted before
-                            // So we keep track of things internally here
-                            
                             UserInformation.latitude = (self.placemark!.location!.coordinate.latitude)
                             UserInformation.longitude = (self.placemark!.location!.coordinate.longitude)
                             
@@ -241,21 +208,14 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
                             UserInformation.mediaURL = self.mediaURLTextField.text!
                             
                             self.dismiss(animated: true, completion: nil)
-                            
                         }
-                        
                     } else {
-                        
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         self.displayAlert(message: error!)
-                        
                     }
                 }
-                
             }
-            
         }
-        
     }
     
     // MARK: Configure UI
@@ -300,5 +260,4 @@ class InformationPostingViewController: UIViewController, UITextFieldDelegate, M
             }
         }
     }
-    
 }

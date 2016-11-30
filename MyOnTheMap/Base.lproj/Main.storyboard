@@ -79,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1139" y="-331"/>
+            <point key="canvasLocation" x="1341" y="-331"/>
         </scene>
         <!--Information Posting View Controller-->
         <scene sceneID="LAx-a1-gRg">
@@ -139,7 +139,7 @@
                                             <outlet property="delegate" destination="lhd-m3-NJL" id="jzt-7R-4zO"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwZ-JK-O6i">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you studying today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwZ-JK-O6i">
                                         <rect key="frame" x="54" y="54" width="213" height="66"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="66" id="XMX-9d-n6h"/>
@@ -170,9 +170,8 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pXn-Ua-KdV">
                                 <rect key="frame" x="0.0" y="128" width="320" height="352"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTb-s4-irZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTb-s4-irZ">
                                 <rect key="frame" x="91" y="399" width="139" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Find On The Map"/>
                                 <connections>
                                     <action selector="submitPressed:" destination="lhd-m3-NJL" eventType="touchUpInside" id="ZNP-xX-ldy"/>
@@ -214,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3i-cE-CrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="25"/>
+            <point key="canvasLocation" x="2074" y="25"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -269,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1139" y="380"/>
+            <point key="canvasLocation" x="1341" y="380"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="7IX-nf-5nQ">
@@ -398,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LR3-dJ-AKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-263" y="25"/>
+            <point key="canvasLocation" x="-615" y="25"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -416,7 +415,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="214" y="25"/>
+            <point key="canvasLocation" x="17" y="25"/>
         </scene>
         <!--List-->
         <scene sceneID="b6I-Gy-7W9">

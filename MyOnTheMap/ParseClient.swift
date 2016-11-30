@@ -12,8 +12,7 @@ class ParseClient {
     
     // MARK: Properties
     
-    // Shared session
-    var session = URLSession.shared
+    let session = URLSession.shared
     
     // MARK: GET student locations
     
@@ -40,19 +39,15 @@ class ParseClient {
             }
             
             /* Parse and use data */
-            
             if let parsedResult = (try! JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String: AnyObject] {
-                
                 StudentModel.sharedInstance.students = StudentInformation.studentFromResult(results: parsedResult["results"] as! [[String: AnyObject]])
-                
             }
             
             completionHandler(true, nil)
-            
+            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue)!)
         }
         
         task.resume()
-        
     }
     
     // MARK: GET location(s) posted by current user
@@ -74,16 +69,13 @@ class ParseClient {
             }
             
             /* Parse and use data */
-            
             if let parsedResult = (try! JSONSerialization.jsonObject(with: data!, options: .allowFragments)) as? [String: AnyObject] {
                 
                 // This could return multiple user locations
-                
                 let userLocations = parsedResult["results"] as! [[String: AnyObject]]
                 
                 // We'll use the last location, which would be the most recent one
                 // Test if it exists and if it does, store it in user data model
-                
                 if let userLatitude = userLocations.last?["latitude"] as? Double {
                     UserInformation.latitude = userLatitude
                 }
@@ -103,15 +95,13 @@ class ParseClient {
                 if let userObjectId = userLocations.last?["objectId"] as? String {
                     UserInformation.objectId = userObjectId
                 }
-                
             }
             
             completionHandler(true, nil)
-            
+            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
         }
         
         task.resume()
-        
     }
     
     // MARK: POST current user's location
@@ -136,11 +126,10 @@ class ParseClient {
             }
             
             completionHandler(true, nil)
-            
+            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
         }
         
         task.resume()
-        
     }
     
     // MARK: PUT (update) current user's location
@@ -165,14 +154,13 @@ class ParseClient {
             }
             
             completionHandler(true, nil)
-            
+            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)!)
         }
         
         task.resume()
-        
     }
     
-    // MARK: DELETE current user's location
+    // MARK: DELETE current user's location  
     
     func deleteUserLocation(objectId: String, completionHandler: @escaping (_ success: Bool, _ error: String?) -> Void) {
         
@@ -192,11 +180,9 @@ class ParseClient {
             }
             
             completionHandler(true, nil)
-            
         }
         
         task.resume()
-        
     }
     
     // MARK: Shared Instance
@@ -205,7 +191,7 @@ class ParseClient {
         struct Singleton {
             static var sharedInstance = ParseClient()
         }
+        
         return Singleton.sharedInstance
     }
-    
 }

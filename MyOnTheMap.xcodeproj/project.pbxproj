@@ -22,7 +22,6 @@
 		E0FE79F21DE22CDF00C5EF60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FE79F01DE22CDF00C5EF60 /* LaunchScreen.storyboard */; };
 		E0FE79FB1DE2360500C5EF60 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE79FA1DE2360500C5EF60 /* LoginViewController.swift */; };
 		E0FE79FF1DE2394C00C5EF60 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE79FE1DE2394C00C5EF60 /* GCDBlackBox.swift */; };
-		E0FE7A011DE2397B00C5EF60 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE7A001DE2397B00C5EF60 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 		E0FE79F31DE22CDF00C5EF60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0FE79FA1DE2360500C5EF60 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E0FE79FE1DE2394C00C5EF60 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
-		E0FE7A001DE2397B00C5EF60 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				E0FE79FE1DE2394C00C5EF60 /* GCDBlackBox.swift */,
-				E0FE7A001DE2397B00C5EF60 /* Constants.swift */,
 				E04241091DEC8190005D30E5 /* UdacityClient.swift */,
 				E042410B1DEC825E005D30E5 /* ParseClient.swift */,
 				E042410D1DEC8694005D30E5 /* UserInformation.swift */,
@@ -222,7 +219,6 @@
 				E042410A1DEC8190005D30E5 /* UdacityClient.swift in Sources */,
 				E042410C1DEC825E005D30E5 /* ParseClient.swift in Sources */,
 				E04241101DEC8738005D30E5 /* StudentInformation.swift in Sources */,
-				E0FE7A011DE2397B00C5EF60 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,9 +15,6 @@ class UdacityClient {
     // Shared session
     var session = URLSession.shared
     
-    // (Magic) number of security characters to skip of Udacity API response
-    let securityChars = 5
-    
     // MARK: Request user key
     
     func getSessionId(username: String, password: String, completionHandler: @escaping (_ userKey: String?, _ error: String?) -> Void) {
@@ -34,7 +31,7 @@ class UdacityClient {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                completionHandler(nil, "Oops, looks like you're not connected to the internet.")
+                completionHandler(nil, "Please check your internet connection.")
                 return
             }
             
@@ -51,34 +48,20 @@ class UdacityClient {
             }
             
             /* Skip security characters */
-            
             let dataLength = data.count
-            let r = self.securityChars...Int(dataLength)
+            let r = 5...Int(dataLength)
             let newData = data.subdata(in: Range(r)) /* subset response data! */
-//            let range = Range(uncheckedBounds: (5, data.count - 5))
-//            let newData = data.subdata(in: range) /* subset response data! */
-//            print(NSString(data: newData, encoding: String.Encoding.utf8.rawValue)!)
             
             /* Parse and use data */
-            
             if let parsedResult = (try! JSONSerialization.jsonObject(with: newData, options: JSONSerialization.ReadingOptions.allowFragments)) as? NSDictionary {
-                
-                if let userKey = (parsedResult["account"] as? [String: Any])?["key"] as? String {
-                    
-                    
-                    UserInformation.userKey = userKey
-                    completionHandler(userKey, nil)
-                    
-                } else {
-                    
-                }
-                
+                    if let userKey = (parsedResult["account"] as? [String: Any])?["key"] as? String {
+                        UserInformation.userKey = userKey
+                        completionHandler(userKey, nil)
+                    }
             }
-            
         }
         
         task.resume()
-        
     }
     
     // MARK: Identify user with key
@@ -104,32 +87,24 @@ class UdacityClient {
             }
             
             /* Skip security characters */
-            
             let dataLength = data.count
-            let r = self.securityChars...Int(dataLength)
+            let r = 5...Int(dataLength)
             let newData = data.subdata(in: Range(r)) /* subset response data! */
-//            let range = Range(uncheckedBounds: (5, data.count - 5))
-//            let newData = data.subdata(in: range) /* subset response data! */
-//            print(NSString(data: newData, encoding: String.Encoding.utf8.rawValue)!)
             
             /* Parse and use data */
-            
             if let parsedResult = (try! JSONSerialization.jsonObject(with: newData, options: JSONSerialization.ReadingOptions.allowFragments)) as? NSDictionary {
-                
-                let userData = parsedResult["user"] as! NSDictionary
-                let firstName = userData["first_name"] as! String
-                let lastName = userData["last_name"] as! String
-                UserInformation.firstName = firstName
-                UserInformation.lastName = lastName
-                
+                    let userData = parsedResult["user"] as! NSDictionary
+                    let firstName = userData["first_name"] as! String
+                    let lastName = userData["last_name"] as! String
+                    UserInformation.firstName = firstName
+                    UserInformation.lastName = lastName
             }
             
             completionHandler(true, nil)
-            
+            print(NSString(data: newData, encoding: String.Encoding.utf8.rawValue)!)
         }
         
         task.resume()
-        
     }
     
     // MARK: DELETE session (logout)
@@ -158,11 +133,9 @@ class UdacityClient {
             }
             
             completionHandler(true, nil)
-            
         }
         
         task.resume()
-        
     }
     
     // MARK: Shared Instance

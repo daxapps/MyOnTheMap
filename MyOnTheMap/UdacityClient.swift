@@ -124,7 +124,7 @@ class UdacityClient {
         }
         
         /* Make the request */
-        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {

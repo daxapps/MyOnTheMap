@@ -114,19 +114,18 @@ class TableViewController: UITableViewController {
     @IBAction func logoutPressed(_ sender: AnyObject) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         UdacityClient.sharedInstance().deleteSession() { (success, error) in
+            
             if success {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
                 performUIUpdatesOnMain {
-                    let viewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
-                    self.present(viewController, animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
                 }
             } else {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 self.displayAlert(message: error!)
             }
         }
-        
     }
     
     @IBAction func refreshPressed(_ sender: AnyObject) {

@@ -24,10 +24,16 @@ class ParseClient {
         request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         
         /* Make the request */
-        let task = session.dataTask(with: request as URLRequest) { data, response, error in
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
+                completionHandler(false, "Sorry, we couldn't download any student locations. PLease try again later.")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 completionHandler(false, "Sorry, we couldn't download any student locations. PLease try again later.")
                 return
             }

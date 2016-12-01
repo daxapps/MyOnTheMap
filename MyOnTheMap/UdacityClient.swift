@@ -2,7 +2,7 @@
 //  UdacityClient.swift
 //  MyOnTheMap
 //
-//  Created by Jason Crawford on 11/28/16.
+//  Created by Jason Crawford on 11/20/16.
 //  Copyright © 2016 Jason Crawford. All rights reserved.
 //
 

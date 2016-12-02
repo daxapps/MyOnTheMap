@@ -78,7 +78,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 
                 performUIUpdatesOnMain {
-                    self.dismiss(animated: true, completion: nil)
+                    let viewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController")
+                    self.present(viewController, animated: true, completion: nil)
                 }
             } else {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
